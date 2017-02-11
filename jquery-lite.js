@@ -192,5 +192,6 @@
     };
 
     window.$ = $;
+    window.jQuery = $;
     return $;
 })();
