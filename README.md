@@ -1,13 +1,13 @@
 # jquery-lite
 
-Custom version of jquery with limited functions and very light weight (only 205 lines of code). This is a fored version from the original code by **Minseok Kim**.
+Custom version of jquery with limited functions and very light weight (only 210 lines of code). This is a fored version from the original code by **Minseok Kim**.
 
 You can visit the original version by **Minseok Kim** at https://github.com/mskims/jquery-lite
 
 
 # File Size
-- jquery-lite.js (4.27KB)
-- jquery-lite.min.js (1.95KB) (922 bytes when zipped)
+- jquery-lite.js (4.39KB)
+- jquery-lite.min.js (2.00KB) (946 bytes when zipped)
 
 
 # What I have changes
@@ -71,6 +71,15 @@ $(() => {
     $("main p").each((item) => {
         console.log(item)
     })
+
+    // use get to access DOM element
+    let el = $('main p').get(0);
+
+    // access parent node
+    let el = $('main p').parent();
+
+    // select element using find
+    $('main').find('p:last-of-type').css('color','red');
 })
 ```
 

@@ -17,6 +17,11 @@
       }
     }
 
+    _loop_iter = function (iter, func) {
+      for (var i = 0, j = iter.length; i < j; i++) {
+        func(iter[i])
+      }
+    }
     _.__proto__.init = (_sel) => {
       _.__proto__.length = 0
 
@@ -93,13 +98,13 @@
     }
 
     _.__proto__.parent = () => {
-      var ar = []
-      _loop(function (el) {
-        ar.push(el.parentNode)
-      })
-      _.set(ar)
+      let _el = null
 
-      return _
+      _loop(function (el) {
+        _el = el.parentNode
+      })
+
+      return _el
     }
 
     _.__proto__.remove = () => {
@@ -115,7 +120,7 @@
       _loop(function (el) {
         var ar2 = []
 
-        _loopIter(el.querySelectorAll(selToF), (elF) => {
+        _loop_iter(el.querySelectorAll(selToF), (elF) => {
           ar.push(elF)
         })
       })
