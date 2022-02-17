@@ -76,4 +76,4 @@ $(() => {
 
 # Author
 
-This is a forked version with small modification from the original code by **Minseok Kim** (https://github.com/mskims/jquery-lite)
+This is a forked version from the original code by **Minseok Kim** (https://github.com/mskims/jquery-lite)
