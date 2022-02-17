@@ -1,13 +1,13 @@
 # jquery-lite (forked version)
 
-Custom version of jquery with limited functions and very light weight. (only 211 lines of code). This is a fored version from the original code by **Minseok Kim**.
+Custom version of jquery with limited functions and very light weight. (only 205 lines of code). This is a fored version from the original code by **Minseok Kim**.
 
 You can visit the original version by **Minseok Kim** at https://github.com/mskims/jquery-lite
 
 
 # File Size
-- jquery-lite.js (4.44KB)
-- jquery-lite.min.js (2.11KB) (961 bytes when zipped)
+- jquery-lite.js (4.27KB)
+- jquery-lite.min.js (1.95KB) (922 bytes when zipped)
 
 
 # What I have changes

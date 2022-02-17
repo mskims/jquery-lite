@@ -1,4 +1,4 @@
-(() => {
+;(() => {
   var $ = (sel) => {
     var e = null
     var _ = {}
@@ -11,6 +11,12 @@
       return typeof HTMLElement === "object" ? o instanceof HTMLElement : o && typeof o === "object" && o !== null && o.nodeType === 1 && typeof o.nodeName === "string"
     }
 
+    const _loop = (func) => {
+      for (var i = 0, j = _.e.length; i < j; i++) {
+        func(_.e[i])
+      }
+    }
+
     _.__proto__.init = (_sel) => {
       _.__proto__.length = 0
 
@@ -20,7 +26,7 @@
         _.e.forEach((item, i) => {
           _[i] = item
         })
-      } else if (typeof _sel === 'function') { 
+      } else if (typeof _sel === "function") {
         window.onload = _sel
       } else if (_is_dom(_sel)) {
         _.e = _sel
@@ -39,20 +45,8 @@
       }
     }
 
-    _.__proto__.loop = (func) => {
-      for (var i = 0, j = _.e.length; i < j; i++) {
-        func(_.e[i])
-      }
-    }
-
-    _.__proto__.loopIter = (iter, func) => {
-      for (var i = 0, j = iter.length; i < j; i++) {
-        func(iter[i])
-      }
-    }
-
     _.__proto__.addClass = (className) => {
-      _.loop(function (el) {
+      _loop(function (el) {
         el.classList.add(className)
       })
 
@@ -60,7 +54,7 @@
     }
 
     _.__proto__.removeClass = (clsssName) => {
-      _.loop(function (el) {
+      _loop(function (el) {
         el.classList.remove(className)
       })
 
@@ -68,7 +62,7 @@
     }
 
     _.__proto__.toggleClass = (className) => {
-      _.loop(function (el) {
+      _loop(function (el) {
         el.classList.toggle(className)
       })
     }
@@ -82,14 +76,14 @@
           _style[_camel_to_snake(item)] = pro[item]
         })
 
-        _.loop(function (el) {
+        _loop(function (el) {
           Object.keys(_style).forEach((item) => {
             el.style[item] = _style[item]
           })
         })
       } else {
         if (typeof val != "undefined") {
-          _.loop(function (el) {
+          _loop(function (el) {
             el.style[pro] = val
           })
         }
@@ -100,7 +94,7 @@
 
     _.__proto__.parent = () => {
       var ar = []
-      _.loop(function (el) {
+      _loop(function (el) {
         ar.push(el.parentNode)
       })
       _.set(ar)
@@ -109,7 +103,7 @@
     }
 
     _.__proto__.remove = () => {
-      _.loop(function (el) {
+      _loop(function (el) {
         el.remove()
       })
 
@@ -118,10 +112,10 @@
 
     _.__proto__.find = (selToF) => {
       var ar = []
-      _.loop(function (el) {
+      _loop(function (el) {
         var ar2 = []
 
-        _.loopIter(el.querySelectorAll(selToF), (elF) => {
+        _loopIter(el.querySelectorAll(selToF), (elF) => {
           ar.push(elF)
         })
       })
@@ -135,7 +129,7 @@
     }
 
     _.__proto__.addEvent = (trigger, func) => {
-      _.loop(function (el) {
+      _loop(function (el) {
         el.addEventListener(trigger, (e) => {
           func.apply($(null), [e])
         })
@@ -154,7 +148,7 @@
 
     _.__proto__.html = (ne) => {
       if (typeof ne != "undefined") {
-        _.loop(function (el) {
+        _loop(function (el) {
           el.innerHTML = ne
         })
         return _
@@ -165,7 +159,7 @@
 
     _.__proto__.text = (ne) => {
       if (typeof ne != "undefined") {
-        _.loop(function (el) {
+        _loop(function (el) {
           el.innerHTML = ne
         })
         return _
@@ -189,7 +183,7 @@
 
     _.__proto__.attr = (prop, ne) => {
       if (typeof ne != "undefined") {
-        _.loop(function (el) {
+        _loop(function (el) {
           el.setAttribute(prop, ne)
         })
         return _
