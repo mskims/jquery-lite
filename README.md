@@ -1,4 +1,4 @@
-# jquery-lite (forked version)
+# jquery-lite
 
 Custom version of jquery with limited functions and very light weight. (only 205 lines of code). This is a fored version from the original code by **Minseok Kim**.
 
