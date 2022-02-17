@@ -64,6 +64,9 @@ $(() => {
     // set data
     $("a").data("x", 10)
 
+    // get data
+    let a = $("a").data("x")
+
     // loop through elements using each
     $("main p").each((item) => {
         console.log(item)
