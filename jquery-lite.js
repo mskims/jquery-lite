@@ -35,7 +35,7 @@
 
     _.__proto__.each = (func) => {
       for (var i = 0, j = _.e.length; i < j; i++) {
-        func.apply(new $(null, [_.e[i]]), [_.e[i], i])
+        func.apply($(null), [_.e[i], i])
       }
     }
 
@@ -137,7 +137,7 @@
     _.__proto__.addEvent = (trigger, func) => {
       _.loop(function (el) {
         el.addEventListener(trigger, (e) => {
-          func.apply(new $(null, [el]), [e])
+          func.apply($(null), [e])
         })
       })
       return _
